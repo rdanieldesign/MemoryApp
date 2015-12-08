@@ -10,4 +10,14 @@ router.get('/all', function(req, res) {
 	});
 });
 
+router.post('/new', function(req, res) {
+	var db = req.db;
+	var records = db.get('records');
+	records.insert(req.body, function(err, result){
+		res.send(
+			(err === null) ? {msg: ''} : {msg: err}
+		);
+	});
+});
+
 module.exports = router;
