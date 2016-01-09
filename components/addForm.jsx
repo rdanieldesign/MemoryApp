@@ -1,6 +1,7 @@
 // main.js
 var React = require('react');
 var $ = require('jquery');
+const addMemory = require('../stores/memories').add;
 
 var AddForm = React.createClass({
     getInitialState: function(){
@@ -11,13 +12,7 @@ var AddForm = React.createClass({
     },
     submitHandler: function(e){
         e.preventDefault();
-        var data = this.state.hello;
-        $.ajax({
-            url: '/records/new',
-            dataType: 'json',
-            data: data,
-            type: 'POST'
-        }).done( function(res){
+        addMemory(this.state.hello).done( function(res){
             if (res.msg === '') {
                 console.log('great!');
             } else {

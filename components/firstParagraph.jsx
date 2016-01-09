@@ -1,4 +1,3 @@
-// main.js
 var React = require('react');
 var $ = require('jquery');
 
@@ -21,7 +20,7 @@ var FirstParagraph = React.createClass({
     },
     render: function(){
         return (
-                <p className="firstParagraph" data={this.state.data}> {this.state.data} {this.props.children}</p>
+            <p className="firstParagraph" data={this.state.data}> {this.state.data} {this.props.children}</p>
         );
     }
 });
